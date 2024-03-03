@@ -12,6 +12,7 @@ import ProductionDetailPage from "./pages/productionDetailPage/productionDetailP
 import RawMaterialPage from "./pages/rawMaterialPage/rawMaterialPage";
 import SignUpPage from "./pages/signUpPage/signUpPage";
 import AdminPage from "./pages/adminPage/adminPage";
+import DispatchDetailPage from "./pages/dispatchDetailPage/dispatchDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -43,11 +44,15 @@ const router = createBrowserRouter([
     element: <ProductionDetailPage />,
   },
   {
+    path: "/dispatch-detail",
+    element: <DispatchDetailPage />,
+  },
+  {
     path: "/report",
     element: <ReportPage />,
   },
   {
-    path: "/admin",
+    path: "/admin-setting",
     element: <AdminPage />,
   },
 ]);

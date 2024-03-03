@@ -18,6 +18,7 @@ const companyName = "Aditya Spinners";
 const pageDetail = [
   { name: "Raw Material", link: "/raw-material" },
   { name: "Production Detail", link: "/production-detail" },
+  { name: "Dispatch Detail", link: "/dispatch-detail" },
   { name: "Reports", link: "/report" },
   { name: "Admin Settings", link: "/admin" },
 ];

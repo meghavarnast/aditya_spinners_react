@@ -13,17 +13,19 @@ type SelectDropDownProps = {
   label: string;
   minWidth?: number;
   data?: SelectDataType[];
+  autoWidth?: boolean;
 };
 
 const SelectDropDown = ({
   label = "Dropdown",
   minWidth = 150,
   data = [],
+  autoWidth = true,
 }: SelectDropDownProps) => {
-  const [age, setAge] = useState("");
+  const [selectedValue, setSelectedValue] = useState("");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setSelectedValue(event.target.value);
   };
 
   return (
@@ -33,10 +35,11 @@ const SelectDropDown = ({
         <Select
           labelId="select-dropdown-label"
           id="select-dropdown"
-          value={age}
+          value={selectedValue}
           onChange={handleChange}
-          autoWidth
+          autoWidth={autoWidth}
           label={label}
+          fullWidth={true}
         >
           {data.length > 0 ? (
             data.map((item) => {

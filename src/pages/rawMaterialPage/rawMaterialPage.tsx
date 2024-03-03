@@ -1,57 +1,102 @@
 import React from "react";
 import ResponsiveAppBar from "../../components/ResponsiveAppBar/ResponsiveAppBar";
 import {
+  Avatar,
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
   Container,
   FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
+  Grid,
+  InputAdornment,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
 import SimpleDatePicker from "../../ui-common/DatePicker/SimpleDatePicker";
 import SelectDropDown, {
   SelectDataType,
 } from "../../ui-common/SelectDropdown/SelectDropDown";
+import { red } from "@mui/material/colors";
+import dayjs from "dayjs";
 
 const RawMaterialPage = () => {
   const dropDownData: SelectDataType[] = [
     {
-      label: "None",
-      value: "",
+      label: "Polyster",
+      value: "polyster",
     },
     {
-      label: "Twenty",
-      value: "10",
-    },
-    {
-      label: "Twenty one",
-      value: "20",
-    },
-    {
-      label: "wenty one and a half",
-      value: "22",
+      label: "Viscosc",
+      value: "viscosc",
     },
   ];
 
+  // Get today's date
+  const today = dayjs();
+
+  // Format date as "MMMM D, YYYY" (e.g., "July 14, 2023")
+  const formattedTodayDate = today.format("DD MMMM, YYYY");
   return (
     <>
       <ResponsiveAppBar />
       <Container maxWidth="md">
-        <div style={{ backgroundColor: "red" }}>hi</div>
+        {/* <div style={{ backgroundColor: "red" }}>test</div> */}
 
-        <Paper elevation={3} style={{ padding: 10 }}>
-          <Typography textAlign="center"> Raw Material Inputs</Typography>
-          <FormControl>
-            <InputLabel htmlFor="my-input">Email address</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <FormHelperText id="my-helper-text">
-              We'll never share your email.
-            </FormHelperText>
-            <SimpleDatePicker label="Date" />
-            <SelectDropDown label="Material Type" data={dropDownData} />
-          </FormControl>
-        </Paper>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Paper elevation={4} sx={{ maxWidth: 400, marginTop: "8rem" }}>
+            <Card>
+              <CardHeader
+                avatar={
+                  <Avatar
+                    sx={{ bgcolor: red[500], padding: "0.2rem" }}
+                    aria-label="recipe"
+                  >
+                    RMI
+                  </Avatar>
+                }
+                title={<Typography> Raw Material Inputs</Typography>}
+                subheader={formattedTodayDate}
+              />
+              <CardContent>
+                <FormControl>
+                  <div id="raw-material-datepicker" style={{ margin: "8px" }}>
+                    <SimpleDatePicker label="Raw Material Date" />
+                  </div>
+                  <SelectDropDown
+                    label="Material Type"
+                    data={dropDownData}
+                    autoWidth={false}
+                    minWidth={250}
+                  />
+                  <TextField
+                    label="Qunatity (in kg)"
+                    id="outlined-start-adornment"
+                    sx={{ m: 1, width: "25ch" }}
+                    variant="outlined"
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="start">kg</InputAdornment>
+                      ),
+                    }}
+                  />
+                  <div
+                    id="raw-material-submit"
+                    style={{ marginTop: "1rem", textAlign: "center" }}
+                  >
+                    <Button variant="contained">Submit</Button>
+                  </div>
+                </FormControl>
+              </CardContent>
+            </Card>
+          </Paper>
+        </Grid>
       </Container>
     </>
   );

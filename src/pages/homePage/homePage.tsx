@@ -18,16 +18,24 @@ const cardDetails: SimpleLinkCardProps[] = [
     linkPath: "/production-detail",
   },
   {
+    title: "Dispatch Detail",
+    description: "Dispatch Detail Inputs",
+    imageName: "dispatch-detail",
+    linkPath: "/dispatch-detail",
+  },
+  {
     title: "Reports",
     description:
       "Spinning Machine Wise Report, Spinning Machine Wise Report for Single Yarn Process, Double Yarn : Ring Double process, Double yearn : T.F.O process",
+    imageName: "report",
     linkPath: "/report",
   },
   {
     title: "Admin Settings",
     description:
       "Machine Wise Settings, Spinning Production Constants, Count Wise Fourties Conversion",
-    linkPath: "/admin",
+    imageName: "admin-setting",
+    linkPath: "/admin-setting",
   },
 ];
 const HomePage = () => {
