@@ -20,9 +20,9 @@ const pageDetail = [
   { name: "Production Detail", link: "/production-detail" },
   { name: "Dispatch Detail", link: "/dispatch-detail" },
   { name: "Reports", link: "/report" },
-  { name: "Admin Settings", link: "/admin" },
+  { name: "Admin Settings", link: "/admin-setting" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["Profile", "Logout"];
 
 const ResponsiveAppBar = () => {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ const ResponsiveAppBar = () => {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}

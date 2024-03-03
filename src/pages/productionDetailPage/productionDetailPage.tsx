@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import React from "react";
 import ResponsiveAppBar from "../../components/ResponsiveAppBar/ResponsiveAppBar";
 import {
@@ -15,13 +14,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import SimpleDatePicker from "../../ui-common/DatePicker/SimpleDatePicker";
+import dayjs from "dayjs";
 import { red } from "@mui/material/colors";
+import SimpleDatePicker from "../../ui-common/DatePicker/SimpleDatePicker";
 import SelectDropDown, {
   SelectDataType,
 } from "../../ui-common/SelectDropdown/SelectDropDown";
 
-const DispatchDetailPage = () => {
+const productionDetailPage = () => {
   const dummyDropDownData: SelectDataType[] = [
     {
       label: "40s / 5214",
@@ -34,6 +34,7 @@ const DispatchDetailPage = () => {
   ];
 
   // Get today's date
+  // eslint-disable-next-line no-undef
   const today = dayjs();
 
   // Format date as "MMMM D, YYYY" (e.g., "July 14, 2023")
@@ -43,7 +44,7 @@ const DispatchDetailPage = () => {
     <>
       <ResponsiveAppBar />
       <Container maxWidth="md">
-        {/* <div style={{ backgroundColor: "red" }}>test</div> */}
+        <div style={{ backgroundColor: "red" }}>test</div>
 
         <Grid
           container
@@ -51,7 +52,7 @@ const DispatchDetailPage = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Paper elevation={4} sx={{ maxWidth: 600, marginTop: "8rem" }}>
+          <Paper elevation={4} sx={{ marginTop: "8rem" }}>
             <Card>
               <CardHeader
                 avatar={
@@ -59,16 +60,16 @@ const DispatchDetailPage = () => {
                     sx={{ bgcolor: red[500], padding: "0.2rem" }}
                     aria-label="recipe"
                   >
-                    DD
+                    PDI
                   </Avatar>
                 }
-                title={<Typography>Dispatch Details</Typography>}
+                title={<Typography>Production Detail Input</Typography>}
                 subheader={formattedTodayDate}
               />
               <CardContent>
                 <FormControl>
                   <div id="dispatch-datepicker" style={{ margin: "8px" }}>
-                    <SimpleDatePicker label="Dispatch Date" />
+                    <SimpleDatePicker label="Production Date" />
                   </div>
                   <Grid container spacing={1}>
                     <Grid item xs={12} sm={4} md={4}>
@@ -151,4 +152,4 @@ const DispatchDetailPage = () => {
   );
 };
 
-export default DispatchDetailPage;
+export default productionDetailPage;

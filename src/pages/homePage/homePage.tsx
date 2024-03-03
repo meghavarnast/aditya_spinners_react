@@ -3,6 +3,7 @@ import SimpleLinkCard, {
   SimpleLinkCardProps,
 } from "../../components/SimpleLinkCard/SimpleLinkCard";
 import ResponsiveAppBar from "../../components/ResponsiveAppBar/ResponsiveAppBar";
+import { Paper } from "@mui/material";
 
 const cardDetails: SimpleLinkCardProps[] = [
   {
@@ -46,13 +47,13 @@ const HomePage = () => {
         <Grid
           container
           direction="row"
-          //   justifyContent="space-evenly"
-          alignItems="center"
+          // justifyContent="space-evenly"
+          // alignItems="center"
           spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
+          // columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {Array.from(cardDetails).map((data, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <div>
                 <SimpleLinkCard
                   title={data.title}
