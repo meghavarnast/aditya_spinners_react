@@ -8,16 +8,18 @@ import dayjs from "dayjs";
 type SimpleDatePickerProps = {
   label?: string;
   defaultDate?: Date;
+  width?: number;
 };
 const dateFormat = "DD/MM/YYYY";
 
 const SimpleDatePicker = ({
   label = "Basic date picker",
   defaultDate = new Date(),
+  width = 200,
 }: SimpleDatePickerProps) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DatePicker"]}>
+      <DemoContainer components={["DatePicker"]} sx={{ width: width }}>
         <DatePicker
           label={label}
           format={dateFormat}

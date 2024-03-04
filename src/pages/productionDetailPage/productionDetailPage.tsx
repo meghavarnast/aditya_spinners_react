@@ -7,6 +7,7 @@ import {
   CardContent,
   CardHeader,
   Container,
+  Divider,
   FormControl,
   Grid,
   InputAdornment,
@@ -33,6 +34,20 @@ const productionDetailPage = () => {
     },
   ];
 
+  const reasonForStopping = [
+    "Maintenance Cleaning",
+    "Maintenance Work",
+    "Mechanical Repair",
+    "Electrical Repair",
+    "Back Stuff Shortage",
+    "Power Failure",
+    "Hand Shortage",
+    "Lot Change and Run Out",
+    "Empty Bobbin Shortage",
+    "Travellers Change",
+    "Modernisation",
+    "Miscellaneous",
+  ];
   // Get today's date
   // eslint-disable-next-line no-undef
   const today = dayjs();
@@ -63,31 +78,34 @@ const productionDetailPage = () => {
                     PDI
                   </Avatar>
                 }
-                title={<Typography>Production Detail Input</Typography>}
+                title={
+                  <Typography variant="h6">Production Detail Input</Typography>
+                }
                 subheader={formattedTodayDate}
               />
               <CardContent>
                 <FormControl>
-                  <div id="dispatch-datepicker" style={{ margin: "8px" }}>
-                    <SimpleDatePicker label="Production Date" />
-                  </div>
                   <Grid container spacing={1}>
                     <Grid item xs={12} sm={4} md={4}>
-                      <TextField
-                        label="Lot Numner"
-                        id="lot-number"
-                        sx={{ m: 1 }}
-                        variant="outlined"
+                      <SelectDropDown
+                        label="Department"
+                        data={dummyDropDownData}
+                        autoWidth={false}
                       />
                     </Grid>
                     <Grid item xs={12} sm={4} md={4}>
-                      <TextField
-                        label="Tint Color"
-                        id="tint-color"
-                        sx={{ m: 1 }}
-                        variant="outlined"
+                      <SelectDropDown
+                        label="Shift"
+                        data={dummyDropDownData}
+                        autoWidth={false}
                       />
                     </Grid>
+                    <Grid item xs={12} sm={4} md={4}>
+                      <SimpleDatePicker label="Production Date" />
+                    </Grid>
+                  </Grid>
+
+                  <Grid container spacing={1}>
                     <Grid item xs={12} sm={4} md={4}>
                       <SelectDropDown
                         label="Count / Blend"
@@ -95,49 +113,64 @@ const productionDetailPage = () => {
                         autoWidth={false}
                       />
                     </Grid>
-                  </Grid>
-                  <Grid container spacing={1}>
                     <Grid item xs={12} sm={4} md={4}>
-                      {" "}
                       <TextField
-                        label="No.of Bags"
-                        id="number-of-bags"
+                        label="Hanks Produced"
+                        id="hanks-produced"
                         sx={{ m: 1 }}
                         variant="outlined"
                       />
                     </Grid>
                     <Grid item xs={12} sm={4} md={4}>
                       <TextField
-                        label="Bag Number"
-                        id="bag-number-from"
+                        label="Waste (in Kg)"
+                        id="waste-in-kg"
                         sx={{ m: 1 }}
                         variant="outlined"
                         InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">
-                              From
-                            </InputAdornment>
-                          ),
-                        }}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={4} md={4}>
-                      <TextField
-                        label="Bag Number"
-                        id="bag-number-to"
-                        sx={{ m: 1 }}
-                        variant="outlined"
-                        InputProps={{
-                          startAdornment: (
-                            <InputAdornment position="start">To</InputAdornment>
+                          endAdornment: (
+                            <InputAdornment position="start">Kg</InputAdornment>
                           ),
                         }}
                       />
                     </Grid>
                   </Grid>
 
+                  <Divider
+                    orientation="horizontal"
+                    variant="middle"
+                    flexItem
+                    sx={{ marginTop: "1rem", marginBottom: "1rem" }}
+                  />
+                  <Typography variant="h6" sx={{ m: "0 0.5rem 1rem 0.5rem" }}>
+                    Reasons for Stopping{" "}
+                    <span style={{ fontSize: "medium" }}>(in minutes)</span>
+                  </Typography>
+
+                  <Grid container spacing={1}>
+                    {reasonForStopping.map((data) => {
+                      return (
+                        <Grid item xs={12} sm={4} md={4}>
+                          <TextField
+                            label={data}
+                            id={data}
+                            sx={{ m: 1 }}
+                            variant="outlined"
+                            // InputProps={{
+                            //   endAdornment: (
+                            //     <InputAdornment position="start">
+                            //       Mins
+                            //     </InputAdornment>
+                            //   ),
+                            // }}
+                          />
+                        </Grid>
+                      );
+                    })}
+                  </Grid>
+
                   <div
-                    id="dispatch-submit"
+                    id="production-submit"
                     style={{ marginTop: "1rem", textAlign: "center" }}
                   >
                     <Button variant="contained">Submit</Button>

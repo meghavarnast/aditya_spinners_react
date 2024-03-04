@@ -76,13 +76,13 @@ const RawMaterialPage = () => {
                     minWidth={250}
                   />
                   <TextField
-                    label="Qunatity (in kg)"
+                    label="Qunatity (in Kg)"
                     id="outlined-start-adornment"
                     sx={{ m: 1, width: "25ch" }}
                     variant="outlined"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="start">kg</InputAdornment>
+                        <InputAdornment position="start">Kg</InputAdornment>
                       ),
                     }}
                   />

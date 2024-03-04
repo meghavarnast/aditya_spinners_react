@@ -3,7 +3,6 @@ import SimpleLinkCard, {
   SimpleLinkCardProps,
 } from "../../components/SimpleLinkCard/SimpleLinkCard";
 import ResponsiveAppBar from "../../components/ResponsiveAppBar/ResponsiveAppBar";
-import { Paper } from "@mui/material";
 
 const cardDetails: SimpleLinkCardProps[] = [
   {
