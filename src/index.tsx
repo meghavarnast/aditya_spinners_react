@@ -17,7 +17,7 @@ import DispatchDetailPage from "./pages/dispatchDetailPage/dispatchDetailPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <LoginPage />,
   },
   {
     path: "*",

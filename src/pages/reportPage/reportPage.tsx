@@ -49,7 +49,7 @@ const ReportPage = () => {
             <TabPanel value={tab.value} sx={{ padding: 3 }}>
               {tab.label}
               <br />
-              Some table - Read / Write
+              Some table - Read only and PDF
             </TabPanel>
           ))}
         </TabContext>
