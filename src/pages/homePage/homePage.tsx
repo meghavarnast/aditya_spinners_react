@@ -52,7 +52,7 @@ const HomePage = () => {
           // columns={{ xs: 4, sm: 8, md: 12 }}
         >
           {Array.from(cardDetails).map((data, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
               <div>
                 <SimpleLinkCard
                   title={data.title}

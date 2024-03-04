@@ -5,6 +5,9 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 
+import SpinningProdConstant from "../../components/SpinningProdConstant/SpinningProdConstant";
+import CountWise40Conversion from "../../components/CountWise40Conversion/CountWise40Conversion";
+
 const AdminPage = () => {
   const tabs = [
     {
@@ -16,7 +19,7 @@ const AdminPage = () => {
       value: "2",
     },
     {
-      label: "Counr Wise Fourties Conversion",
+      label: "Count Wise Fourties Conversion",
       value: "3",
     },
   ];
@@ -47,7 +50,9 @@ const AdminPage = () => {
             <TabPanel value={tab.value} sx={{ padding: 3 }}>
               {tab.label}
               <br />
-              Some table - Read / Write
+
+              {tab.value === "2" && <SpinningProdConstant />}
+              {tab.value === "3" && <CountWise40Conversion />}
             </TabPanel>
           ))}
         </TabContext>

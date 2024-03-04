@@ -2,6 +2,7 @@ import React from "react";
 import ResponsiveAppBar from "../../components/ResponsiveAppBar/ResponsiveAppBar";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
+import ColumnGroupTable from "../../components/ColumnGroupTable/ColumnGroupTable";
 
 const ReportPage = () => {
   const tabs = [
@@ -50,6 +51,8 @@ const ReportPage = () => {
               {tab.label}
               <br />
               Some table - Read only and PDF
+              <br />
+              <ColumnGroupTable />
             </TabPanel>
           ))}
         </TabContext>
